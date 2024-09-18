@@ -4,13 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- <parent> -->
-    <!--     <groupId>io.github.dribble312</groupId> -->
-    <!--     <artifactId>dribble-java-dependencies</artifactId> -->
-    <!--     <version>1.0-SNAPSHOT</version> -->
-    <!-- </parent> -->
+    <parent>
+        <groupId>io.github.dribble312</groupId>
+        <artifactId>dribble-java-dependencies</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
-    <groupId>io.github.dribble312</groupId>
     <artifactId>clev-common</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -19,18 +18,6 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>io.github.dribble312</groupId>
-                <artifactId>dribble-java-dependencies</artifactId>
-                <version>1.0-SNAPSHOT</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <dependencies>
         <dependency>
