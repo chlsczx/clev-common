@@ -1,7 +1,8 @@
 package io.github.dribble312.common.utils.string;
 
 
-import io.github.dribble312.common.utils.ObjectUtils;
+
+import org.springframework.util.ObjectUtils;
 
 import java.util.Arrays;
 import java.util.HashMap;

@@ -1,20 +1,16 @@
 package io.github.dribble312.common.entity;
 
-import io.github.dribble312.common.dto.EntityDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Getter
-@Setter(AccessLevel.PUBLIC)
+@Setter
 @ToString(callSuper = true)
+@NoArgsConstructor
 @EqualsAndHashCode
-@SuperBuilder(toBuilder = true, setterPrefix = "with")
+@SuperBuilder(toBuilder = true)
 public abstract class BaseEntity {
 
     private Long id;
-
-    public EntityDto toDto() {
-        throw new UnsupportedOperationException("abstract type: [EntityDto]");
-    }
 
 }

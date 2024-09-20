@@ -1,4 +1,4 @@
-package io.github.dribble312.common.constant.web;
+package io.github.dribble312.common.web.constants;
 
 /**
  * @author czx

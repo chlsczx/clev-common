@@ -1,9 +1,9 @@
-package io.github.dribble312.common.constant;
+package io.github.dribble312.common.constants;
 
 /**
  * @author czx
  */
-public class DelimiterConstant {
+public class DelimiterConstants {
 
     public static final String DOT = ".";
     public static final String HYPHEN = "-";

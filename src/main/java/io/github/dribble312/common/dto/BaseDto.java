@@ -1,9 +1,6 @@
 package io.github.dribble312.common.dto;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -13,8 +10,9 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 @NoArgsConstructor(force = true)
 @EqualsAndHashCode
-@SuperBuilder(toBuilder = true, setterPrefix = "with")
-public abstract class EntityDto {
+@SuperBuilder(toBuilder = true)
+public abstract class BaseDto {
 
     private final Long id;
+
 }
