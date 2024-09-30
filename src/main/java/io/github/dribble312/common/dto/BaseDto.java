@@ -11,7 +11,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor(force = true)
 @EqualsAndHashCode
 @SuperBuilder(toBuilder = true)
-public abstract class BaseDto {
+public class BaseDto {
 
     private final Long id;
 

@@ -13,7 +13,7 @@ import java.time.ZonedDateTime;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor(force = true)
 @SuperBuilder(toBuilder = true)
-public abstract class NonUpdatableAuditedPo extends BasePo {
+public class NonUpdatableAuditedPo extends BasePo {
 
     private final ZonedDateTime createdAt;
 

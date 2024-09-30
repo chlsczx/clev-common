@@ -4,6 +4,8 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.temporal.ChronoUnit;
 
 @Getter
 @Setter
@@ -14,7 +16,7 @@ import java.time.ZoneId;
 public class AuditedEntity extends BaseEntity {
 
     @Builder.Default()
-    private ZoneId zoneId = ZoneId.systemDefault();
+    private ZoneId zoneId = ZoneOffset.UTC;
 
     /**
      * Clone and change the timezone.
@@ -48,6 +50,10 @@ public class AuditedEntity extends BaseEntity {
     protected AuditedEntity alignTimezone() {
         // do nothing
         return this;
+    }
+
+    public AuditedEntity cloneWithTruncatingDateTime(ChronoUnit chronoUnit) {
+        return this.toBuilder().build();
     }
 
 }

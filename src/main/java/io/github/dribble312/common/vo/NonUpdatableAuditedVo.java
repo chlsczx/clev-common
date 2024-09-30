@@ -1,19 +1,22 @@
-package io.github.dribble312.common.dto;
+package io.github.dribble312.common.vo;
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.time.ZonedDateTime;
 
 /**
- * @author czx
+ * @author dribble312
  */
 @Getter
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor(force = true)
 @SuperBuilder(toBuilder = true)
-public class NonUpdatableAuditedDto extends BaseDto {
+public class NonUpdatableAuditedVo extends BaseVo {
 
     private final ZonedDateTime createdAt;
 

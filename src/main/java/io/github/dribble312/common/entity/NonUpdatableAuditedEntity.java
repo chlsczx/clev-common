@@ -1,13 +1,16 @@
 package io.github.dribble312.common.entity;
 
 import lombok.*;
+import lombok.experimental.Accessors;
 import lombok.experimental.SuperBuilder;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.temporal.ChronoUnit;
 
 @Getter
 @Setter
+@Accessors(chain = true)
 @ToString(callSuper = true)
 @NoArgsConstructor(force = true)
 @EqualsAndHashCode(callSuper = true)
@@ -18,7 +21,7 @@ public class NonUpdatableAuditedEntity extends AuditedEntity {
 
     private ZonedDateTime deletedAt;
 
-    public void delete() {
+    public NonUpdatableAuditedEntity delete() {
         if (this.getDeletedAt() != null) {
             throw new IllegalStateException("Entity already has a `deletedAt`");
         }
@@ -28,9 +31,11 @@ public class NonUpdatableAuditedEntity extends AuditedEntity {
         }
 
         this.deletedAt = ZonedDateTime.now(super.getZoneId());
+
+        return this;
     }
 
-    public void create(@NonNull Long id) {
+    public NonUpdatableAuditedEntity create(@NonNull Long id) {
         if (super.getId() != null || this.getCreatedAt() != null) {
             if (super.getId() != null && this.getCreatedAt() != null) {
                 throw new IllegalStateException("Entity already created.");
@@ -41,6 +46,8 @@ public class NonUpdatableAuditedEntity extends AuditedEntity {
 
         super.setId(id);
         this.createdAt = ZonedDateTime.now(super.getZoneId());
+
+        return this;
     }
 
 
@@ -71,4 +78,18 @@ public class NonUpdatableAuditedEntity extends AuditedEntity {
         return this;
     }
 
+    @Override
+    public NonUpdatableAuditedEntity cloneWithTruncatingDateTime(ChronoUnit chronoUnit) {
+        NonUpdatableAuditedEntity clone = (NonUpdatableAuditedEntity) super.cloneWithTruncatingDateTime(
+                chronoUnit);
+        ZonedDateTime createdAt = clone.getCreatedAt();
+
+        ZonedDateTime deletedAt = clone.getDeletedAt();
+
+        if (createdAt != null) clone.setCreatedAt(createdAt.truncatedTo(chronoUnit));
+
+        if (deletedAt != null) clone.setDeletedAt(deletedAt.truncatedTo(chronoUnit));
+
+        return clone;
+    }
 }

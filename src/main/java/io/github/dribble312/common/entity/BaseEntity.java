@@ -9,7 +9,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @EqualsAndHashCode
 @SuperBuilder(toBuilder = true)
-public abstract class BaseEntity {
+public class BaseEntity {
 
     private Long id;
 
